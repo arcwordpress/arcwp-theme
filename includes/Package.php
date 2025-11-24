@@ -67,10 +67,10 @@ class Package extends Collection
         ],
         'permissions' => [
             'get_many' => [
-                'type' => 'nonce_only'
+                'type' => 'protected'
             ],
             'get_one' => [
-                'type' => 'nonce_only'
+                'type' => 'protected'
             ],
         ]
     ];

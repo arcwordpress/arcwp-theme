@@ -209,3 +209,9 @@ add_action('admin_init', function() {
 
 // Theme updater management
 require_once get_template_directory() . '/updater/manage.php';
+
+add_action('template_redirect', function() {
+    if (is_page('showcase') || is_page('prototype-ui')) {
+        show_admin_bar(false);
+    }
+});

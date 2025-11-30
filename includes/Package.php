@@ -57,22 +57,6 @@ class Package extends Collection
         'namespace' => 'arcwp',
         'version' => 'v1',
         'route' => 'packages',
-        'allow_basic_auth' => true,
-        'methods' => [
-            'get_many' => true,
-            'get_one' => true,
-            'create' => true,
-            'update' => true,
-            'delete' => true,
-        ],
-        'permissions' => [
-            'get_many' => [
-                'type' => 'protected'
-            ],
-            'get_one' => [
-                'type' => 'protected'
-            ],
-        ]
     ];
 
     /**

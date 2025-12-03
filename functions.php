@@ -1,9 +1,5 @@
 <?php
 
-// Require Package Collection and Database Manager
-require_once get_template_directory() . '/includes/Package.php';
-require_once get_template_directory() . '/includes/PackageDatabase.php';
-
 add_action('wp_enqueue_scripts', function() {
     // Enqueue Google Fonts (Geist and Lexend Exa)
     wp_enqueue_style(
@@ -115,21 +111,6 @@ add_action('after_setup_theme', function() {
     add_theme_support('menus');
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
-});
-
-// Register Package Collection
-add_action('init', function() {
-    if (class_exists('Gateway\Plugin')) {
-        \ARCWP\Package::register();
-    }
-});
-
-// Create packages table on theme activation
-add_action('after_switch_theme', function() {
-    \ARCWP\PackageDatabase::install();
-
-    // Flush rewrite rules on theme activation
-    flush_rewrite_rules();
 });
 
 // Add rewrite rules for packages routes

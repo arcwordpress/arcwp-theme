@@ -29,6 +29,10 @@ ARC WP Theme is a clean, performance-focused WordPress theme designed for modern
 3. Choose the downloaded zip file and click Install Now
 4. Activate the theme
 
+== Dependencies ==
+
+* **Showcase Gateway Extension** - Required for full functionality. The Packages app (`apps/packages/`) renders the front-end for the Packages Collection registered in this extension.
+
 == Support ==
 
 For support and documentation, visit: https://arcwp.ca/docs

@@ -32,3 +32,13 @@ ARC WP Theme is a clean, performance-focused WordPress theme designed for modern
 == Support ==
 
 For support and documentation, visit: https://arcwp.ca/docs
+
+== Development ==
+
+To watch for Tailwind CSS changes during development:
+
+```
+npm run dev
+```
+
+This runs `npx tailwindcss -i ./tailwind/input.css -o ./tailwind.css --watch` to compile Tailwind CSS and watch for changes.

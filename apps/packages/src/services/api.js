@@ -52,7 +52,7 @@ apiClient.interceptors.request.use((config) => {
  */
 export const fetchPackages = async (params = {}) => {
   try {
-    const response = await apiClient.get('arcwp/v1/packages', { params });
+    const response = await apiClient.get('gateway/v1/packages', { params });
     return response.data.data?.items || response.data.items || response.data || [];
   } catch (error) {
     console.error('Error fetching packages:', error);
@@ -89,7 +89,7 @@ export const fetchPackageBySlug = async (slug) => {
  */
 export const fetchPackage = async (id) => {
   try {
-    const response = await apiClient.get(`arcwp/v1/packages/${id}`);
+    const response = await apiClient.get(`gateway/v1/packages/${id}`);
     return response.data.data || response.data;
   } catch (error) {
     console.error(`Error fetching package ${id}:`, error);

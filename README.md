@@ -42,3 +42,13 @@ npm run dev
 ```
 
 This runs `npx tailwindcss -i ./tailwind/input.css -o ./tailwind.css --watch` to compile Tailwind CSS and watch for changes.
+
+**Note for deployment:** If you make changes to the packages browser in `apps/packages/`, you'll need to run the build commands there as well:
+
+```
+cd apps/packages
+npm run dev    # for development (wp-scripts start)
+npm run build  # for production (wp-scripts build)
+```
+
+Make sure to run both the root Tailwind build and the apps/packages build before deploying if changes were made in both areas.

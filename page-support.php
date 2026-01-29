@@ -92,6 +92,30 @@ get_header();
             </div>
 
         </div>
+
+        <!-- Submit Support Ticket -->
+        <div class="mt-8">
+            <div class="bg-slate-50 dark:bg-slate-900 border-2 border-slate-900 dark:border-slate-50 rounded-xl p-8">
+                <div class="mb-6">
+                    <span class="text-xs font-semibold bg-orange-600 text-slate-50 px-3 py-1 rounded-full">
+                        Submit Ticket
+                    </span>
+                </div>
+                <h3 class="font-lexend text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
+                    Create a Support Ticket
+                </h3>
+                <p class="text-slate-900 dark:text-slate-50 leading-relaxed mb-6">
+                    Need help? Submit a support ticket and our team will get back to you as soon as possible.
+                </p>
+
+                <?php
+                // Render Gateway form for Ticket collection
+                if (class_exists('Gateway\Forms\Render')) {
+                    \Gateway\Forms\Render::form('tickets');
+                }
+                ?>
+            </div>
+        </div>
     </div>
 </main>
 

@@ -1,9 +1,5 @@
 <?php
 
-// Require Package Collection and Database Manager
-require_once get_template_directory() . '/includes/Package.php';
-require_once get_template_directory() . '/includes/PackageDatabase.php';
-
 add_action('wp_enqueue_scripts', function() {
     // Enqueue Google Fonts (Geist and Lexend Exa)
     wp_enqueue_style(
@@ -78,6 +74,33 @@ add_action('wp_enqueue_scripts', function() {
             ]);
         }
     }
+
+    // ========================================================================
+    // TEST1 ANIMATION - Timeline Controls Test
+    // This section can be removed after testing is complete
+    // ========================================================================
+    if (is_page('test1')) {
+        // Enqueue test controls script as ES6 module
+        // The module imports anime.js and test-timeline.js
+        wp_enqueue_script(
+            'arcwp-test-controls',
+            get_template_directory_uri() . '/js/test-controls.js',
+            [], // No dependencies - module imports everything itself
+            wp_get_theme()->get('Version'),
+            true
+        );
+
+        // Add type="module" attribute to the script tag
+        add_filter('script_loader_tag', function($tag, $handle) {
+            if ('arcwp-test-controls' === $handle) {
+                $tag = str_replace('<script ', '<script type="module" ', $tag);
+            }
+            return $tag;
+        }, 10, 2);
+    }
+    // ========================================================================
+    // END TEST1 ANIMATION
+    // ========================================================================
 });
 
 // Add theme support for menus and features
@@ -88,21 +111,6 @@ add_action('after_setup_theme', function() {
     add_theme_support('menus');
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
-});
-
-// Register Package Collection
-add_action('init', function() {
-    if (class_exists('Gateway\Plugin')) {
-        \ARCWP\Package::register();
-    }
-});
-
-// Create packages table on theme activation
-add_action('after_switch_theme', function() {
-    \ARCWP\PackageDatabase::install();
-
-    // Flush rewrite rules on theme activation
-    flush_rewrite_rules();
 });
 
 // Add rewrite rules for packages routes
@@ -182,3 +190,9 @@ add_action('admin_init', function() {
 
 // Theme updater management
 require_once get_template_directory() . '/updater/manage.php';
+
+add_action('template_redirect', function() {
+    if (is_page('showcase') || is_page('prototype-ui')) {
+        show_admin_bar(false);
+    }
+});

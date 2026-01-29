@@ -91,9 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Set up scroll listener to scrub the timeline
         const updateLearnAnimation = () => {
-
-            console.log('scrolling...')
-
             const rect = learnSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
@@ -104,8 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Convert progress (0-1) to timeline time in milliseconds
             const seekTime = scrollProgress * timelineDuration;
-
-            console.log('seekTime', seekTime)
 
             // Seek timeline to the calculated time, mute callbacks to prevent issues
             learnTimeline.seek(seekTime, true);
@@ -151,7 +146,47 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: 400,
         }, '-=200')
 
-        
+    /**
+     * Smooth scroll for Learn Gateway link
+     */
+    console.log('Setting up Learn Gateway scroll...');
+    const learnGatewayLink = document.querySelector('a[href="#learn-more"]');
+    console.log('Learn Gateway Link found:', learnGatewayLink);
 
+    if (learnGatewayLink) {
+        console.log('Adding click listener to Learn Gateway link');
+        learnGatewayLink.addEventListener('click', function(e) {
+            console.log('Learn Gateway link CLICKED!');
+            e.preventDefault();
+            console.log('Default prevented');
+
+            const targetSection = document.querySelector('#learn-more');
+            console.log('Target section:', targetSection);
+
+            if (targetSection) {
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+                const startPosition = window.pageYOffset;
+                console.log('Start:', startPosition, 'Target:', targetPosition);
+
+                // Create scroll animation object
+                const scrollObj = { scroll: startPosition };
+
+                console.log('Starting animation...');
+                animate(scrollObj, {
+                    scroll: targetPosition,
+                    duration: 800,
+                    ease: 'outBounce',
+                    onUpdate: () => {
+                        console.log('Animating scroll to:', scrollObj.scroll);
+                        window.scrollTo(0, scrollObj.scroll);
+                    }
+                });
+            } else {
+                console.error('Target section not found!');
+            }
+        });
+    } else {
+        console.error('Learn Gateway link NOT found!');
+    }
 
 });

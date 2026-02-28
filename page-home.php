@@ -15,7 +15,7 @@
                         Put custom database tables on the same footing as custom post types with full CRUD support, field system and auto-generated API routes.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 mb-12 hero-buttons" style="opacity: 0;">
-                        <a href="<?php echo site_url('packages/gateway'); ?>" class="font-lexend group inline-flex items-center justify-center bg-orange-800 text-white px-10 py-5 rounded-full text-base font-bold hover:bg-orange-700 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
+                        <a href="<?php echo site_url('get'); ?>" class="font-lexend group inline-flex items-center justify-center bg-orange-800 text-white px-10 py-5 rounded-full text-base font-bold hover:bg-orange-700 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
                             Install Gateway
                         </a>
                         <a href="#learn-more" class="font-lexend inline-flex items-center justify-center gap-1 text-slate-900 dark:text-slate-50 px-8 py-5 text-base font-semibold hover:opacity-70 transition-colors whitespace-nowrap">

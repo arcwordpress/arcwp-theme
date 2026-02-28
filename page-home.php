@@ -120,7 +120,7 @@
                         <div class="text-base text-slate-900 dark:text-slate-50">Get field from ACF or Meta Box</div>
                     </div>
                     <div class="p-6 border-r border-slate-300 dark:border-slate-700 border-l border-orange-600">
-                        <div class="text-base text-slate-900 dark:text-slate-50">Get fields from ARC Blueprint</div>
+                        <div class="text-base text-slate-900 dark:text-slate-50">Get fields from Gateway</div>
                     </div>
                     <div class="p-6">
                         <p class="text-sm text-slate-600 dark:text-slate-400">Built-in field system</p>
@@ -214,12 +214,14 @@
         </div>
     </section>
 
+    <?php the_content(); ?>
+
     <!-- CTA Section -->
     <section id="cta" class="max-w-md mx-auto mt-20 mb-40">
         <article id="cta-content" class="flex flex-col items-center">
             <h2 id="cta-heading" class="text-5xl text-center text-slate-900 dark:text-slate-50 mb-4">Try Gateway for Free</h2>
             <p id="cta-text" class="text-2xl text-center mb-8 text-slate-900 dark:text-slate-50">Experience collections with a 14-day free trial.</p>
-            <a id="cta-button" href="<?php echo site_url('packages'); ?>" class="inline-flex items-center justify-center text-slate-50 bg-orange-600 px-10 py-5 text-base font-semibold hover:bg-orange-700 transition-colors">Get Started</a>
+            <a id="cta-button" href="<?php echo site_url('get'); ?>" class="inline-flex items-center justify-center text-slate-50 bg-orange-600 px-10 py-5 text-base font-semibold hover:bg-orange-700 transition-colors">Get Started</a>
         </article>
     </section>
 

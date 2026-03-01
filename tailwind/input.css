@@ -18,15 +18,6 @@ body {
   line-height: 1.6;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5 {
   font-family: 'Lexend Exa', ui-sans-serif, system-ui, sans-serif;
-}
-
-/* Minimal custom styles for WordPress menu structure */
-header nav a {
-    transition: opacity 0.2s ease;
-}
-
-header nav a:hover {
-    opacity: 0.7;
 }

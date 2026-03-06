@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "settings": {
+        "appearanceTools": true,
+        "color": {
+            "palette": [
+                {
+                    "slug": "mid-grey",
+                    "color": "#777777",
+                    "name": "Mid Grey"
+                },
+                {
+                    "slug": "fives-grey",
+                    "color": "#555555",
+                    "name": "Fives Grey"
+                },
+                {
+                    "slug": "almost-white",
+                    "color": "#C6C6C6",
+                    "name": "Almost White"
+                }   
+            ]
+        },
+        "spacing": {
+            "blockGap": true,
+            "padding": true,
+            "margin": true,
+            "units": ["px", "%", "em", "rem", "vw"]
+        }
+    }
+}

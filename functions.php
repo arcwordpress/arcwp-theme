@@ -111,6 +111,7 @@ add_action('after_setup_theme', function() {
     add_theme_support('menus');
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
+    add_theme_support( '__experimentalBlockRenaming' );
 });
 
 // Add rewrite rules for packages routes
@@ -195,4 +196,10 @@ add_action('template_redirect', function() {
     if (is_page('showcase') || is_page('prototype-ui')) {
         show_admin_bar(false);
     }
+});
+
+add_filter('body_class', function($classes) {
+    $classes[] = 'bg-black';
+    $classes[] = 'text-white';
+    return $classes;
 });

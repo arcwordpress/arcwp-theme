@@ -1,16 +1,6 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Lexend+Exa:wght@400;500;600;700;800;900&display=swap');
-
-@theme {
-  --font-geist: 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-lexend: 'Lexend Exa', ui-sans-serif, system-ui, sans-serif;
-  --text-base: 1rem;
-  --text-base--line-height: 1.6;
-}
-
-@variant dark (&:where(.dark, .dark *));
 
 body {
   font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
@@ -20,4 +10,8 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-family: 'Lexend Exa', ui-sans-serif, system-ui, sans-serif;
+}
+
+main.homepage a {
+  text-decoration: none;
 }

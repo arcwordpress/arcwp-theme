@@ -28,9 +28,9 @@
                 </div>
 
                 <!-- Right Image -->
-                <div class="relative lg:ml-auto hero-image" style="opacity: 0; max-width: 652px;">
+                <div class="relative lg:ml-auto hero-image" style="opacity: 0; max-width: 720px;">
                     <div>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/collection-extends-dark.png" alt="Gateway Collections" width="652" height="384" class="w-full h-auto object-contain">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/home-image.jpg" alt="Gateway Collections" width="1920" height="1334" class="w-full h-auto object-contain">
                     </div>
 
                     <!-- Floating Stats Card -->

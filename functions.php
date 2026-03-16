@@ -203,3 +203,10 @@ add_filter('body_class', function($classes) {
     $classes[] = 'text-white';
     return $classes;
 });
+
+add_action('template_redirect', function() {
+    if (is_page('account') && is_user_logged_in() && !current_user_can('manage_options')) {
+        wp_redirect(site_url('/dashboard/'));
+        exit;
+    }
+});

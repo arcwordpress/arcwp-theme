@@ -29,5 +29,3 @@
 </main>
 
 <?php get_footer(); ?>
-
-PAGE TEMPLATE

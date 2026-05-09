@@ -109,6 +109,10 @@
     background-color: var(--color-bg);
 }
 
+.single-lp_course .lp-archive-courses .course-detail-info {
+    background-color: var(--color-bg);
+}
+
 .single-lp_course .course-curriculum {
     background-color: var(--color-bg);
 }
@@ -135,6 +139,19 @@
     color: var(--color-contrast);
     background-color: var(--color-bg);
     border-radius: 0;
+}
+
+.lp-archive-courses .learn-press-nav-tabs li label {
+    color: var(--color-contrast);
+}
+
+.lp-archive-courses .learn-press-nav-tabs li label:hover {
+    color: var(--color-contrast);
+}
+
+.lp-archive-courses .learn-press-nav-tabs li.active label, 
+.lp-archive-courses .learn-press-nav-tabs li:hover label {
+    color: var(--color-contrast-2);
 }
 
 /** 4.0 MODAL **/

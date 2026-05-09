@@ -1,0 +1,125 @@
+/**
+ * ARCWP Articles
+ * BEM naming: .articles
+ */
+
+.articles {
+  max-width: none;
+  line-height: 1.75;
+  color: #cbd5e1; /* slate-300 */
+}
+
+/* Layout & Container */
+
+.article__container {
+    padding: 1.5rem 0.75rem; /* px-3 py-6 */
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .article__container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+/* Header Section */
+.article__header {
+    margin-bottom: 3rem;
+}
+
+.article__title {
+    color: #ffffff;
+    font-weight: 900; /* font-black */
+    line-height: 1.1;
+    font-size: 1.875rem; /* Default mobile size */
+}
+
+@media (min-width: 1024px) {
+    .article__title {
+        font-size: 3.75rem; /* lg:text-6xl */
+    }
+}
+
+/* The Content Block (Preserving your previous BEM styles) */
+.articles {
+    max-width: none;
+    line-height: 1.75;
+    color: #cbd5e1;
+}
+
+.articles p {
+    margin-bottom: 2.5rem; /* mb-10 */
+}
+
+.articles h2 {
+    color: #ffffff;
+    font-weight: 900;
+    margin-top: 5rem; /* mt-20 */
+    margin-bottom: 2rem;
+    font-size: 1.875rem;
+}
+
+/* Headings */
+.articles h1,
+.articles h2,
+.articles h3 {
+  font-family: "Lexend Exa", sans-serif;
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.articles h1 { font-size: 2.5rem; }
+.articles h2 { font-size: 2rem; }
+.articles h3 { font-size: 1.5rem; }
+
+/* Body Elements */
+.articles p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.articles ul,
+.articles ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.articles ul { list-style-type: disc; }
+.articles ol { list-style-type: decimal; }
+
+.articles li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links & Interactive */
+.articles a {
+  color: #60a5fa; /* blue-400 */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.articles a:hover {
+  color: #93c5fd; /* blue-300 */
+}
+
+/* Blockquotes */
+.articles blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #3b82f6;
+  background: #0f172a; /* slate-900 */
+  font-style: italic;
+}
+
+/* Media */
+.articles img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2rem 0;
+}

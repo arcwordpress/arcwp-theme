@@ -26,12 +26,18 @@ add_action('wp_enqueue_scripts', function() {
         wp_get_theme()->get('Version')
     );
 
-    // --- NEW: Enqueue Landing Page CSS for /courses/ ---
-    $is_page = is_page('courses');
-    error_log("IS PAGE COURSES: " . $is_page);
+    /* LearnPress Styles */
     wp_enqueue_style(
         'arcwp-lp-style',
         get_template_directory_uri() . '/assets/css/lp.css',
+        [],
+        wp_get_theme()->get('Version')
+    );
+
+    /* Articles Styles */
+    wp_enqueue_style(
+        'arcwp-articles-style',
+        get_template_directory_uri() . '/assets/css/articles.css',
         [],
         wp_get_theme()->get('Version')
     );

@@ -1,0 +1,166 @@
+/**
+
+-- Table of Contents
+---- 1.0 COURSE ARCHIVES
+---- 2.0 SINGLE COURSE OVERVIEW
+---- 3.0 SINGLE COURSE TEMPLATE
+---- 4.0 MODAL
+
+**/
+
+
+/** 1.0 COURSE ARCHIVES **/
+
+.lp-archive-courses {
+    --lp-border-color: #151515;
+    --lp-color-base: #AAA;
+    --color-bg: black;
+    --color-contrast: white;
+    --color-contrast-2: #AAA;
+    --color-brand-blue: rgb(30, 64, 175);
+    --color-brand-blue-hex: #1E40AF;
+    background-color: var(--color-bg);
+}
+
+.lp-courses-bar .search-courses button {
+    color: var(--color-contrast);
+}
+
+.lp-courses-bar .courses-order-by {
+    background-color: var(--color-bg);
+    color: var(--color-contrast);
+}
+
+.lp-courses-bar {
+    background-color: var(--color-bg);
+}
+
+.lp-courses-bar .switch-layout .switch-btn::before {
+    color: var(--color-contrast);
+}
+
+.learn-press-courses .course-content .course-readmore a {
+    color: var(--lp-color-base, var(--color-contrast));
+}
+
+.lp-archive-courses .learn-press-courses .course-content .course-readmore a:hover {
+    background: var(--lp-primary-color, var(--color-contrast));
+    color: var(--lp-color-white, var(--color-contrast));
+    border-color: var(--color-brand-blue);
+}
+
+.lp-archive-courses .learn-press-courses .course-price .free {
+    color: var(--color-contrast);
+}
+
+.learn-press-courses .course-content .course-info .course-price .free, 
+.learn-press-courses .course-content .course-info .course-price .price {
+    font-size: calc(var(--lp-font-size-base, 1em) * 0.85);
+}
+
+/** 2.0 SINGLE COURSE OVERVIEW **/
+
+.lp-single-course {
+    --color-bg: black;
+    --color-contrast: white;
+}
+
+.single-lp_course .lp-single-course {
+    background-color: var(--color-bg);
+}
+
+.lp-single-course .lp-single-course__header {
+    background-color: var(--color-bg);
+    --color-brand-blue: rgb(30, 64, 175);
+}
+
+.lp-single-course .lp-single-course-main__right .lp-single-course-main__right__inner {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-brand-blue);
+}
+
+.lp-single-course .lp-single-course-main .info-metas .info-meta-item i {
+    color: var(--color-contrast);
+}
+
+.lp-single-course .lp-single-course-main .course-price .course-item-price .free {
+    color: var(--color-contrast);
+}
+
+.lp-course-curriculum .course-sections .course-section .course-section-header {
+    background-color: var(--color-contrast-2);
+    border: 1px solid var(--color-brand-blue);
+}
+
+.lp-course-curriculum .course-sections .course-section .course-item__left:hover {
+    color: var(--color-contrast);
+}
+
+/** 3.0 SINGLE COURSE TEMPLATE **/
+
+.single-lp_course {
+    --lp-border-color: #151515;
+    --lp-color-base: #AAA;
+    --color-bg: black;
+    --color-contrast: white;
+    --color-contrast-2: #AAA;
+    --color-brand-blue: rgb(30, 64, 175);
+    --color-brand-blue-hex: #1E40AF;
+    background-color: var(--color-bg);
+}
+
+.single-lp_course .course-curriculum {
+    background-color: var(--color-bg);
+}
+
+.lp-archive-courses #popup-course {
+    background-color: var(--color-bg);
+}
+
+.lp-archive-courses #popup-header .course-title a:hover {
+    color: var(--color-contrast);
+}
+
+.lp-archive-courses #popup-header {
+    background-color: var(--color-bg);
+    color: var(--color-contrast);
+}
+
+.lp-course-curriculum .course-sections .course-section .course-section-header {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-bg);
+}
+
+.lp-archive-courses #popup-sidebar .search-course input[name=s] {
+    color: var(--color-contrast);
+    background-color: var(--color-bg);
+    border-radius: 0;
+}
+
+/** 4.0 MODAL **/
+
+.lp-overlay {
+     --lp-border-color: #151515;
+    --lp-color-base: #AAA;
+    --color-bg: black;
+    --color-contrast: white;
+    --color-contrast-2: #AAA;
+    --color-brand-blue: rgb(30, 64, 175);
+    --color-brand-blue-hex: #1E40AF;
+    background-color: var(--color-bg);
+}
+
+.single-lp_course .lp-modal-dialog .lp-modal-header {
+    background-color: var(--color-bg);
+}
+
+.learnpress-page .lp-modal-footer .lp-button.btn-yes, 
+.learnpress-page .lp-modal-footer #lp-button.btn-yes {
+    color: var(--color-contrast);
+    background-color: var(--color-bg);
+}
+
+.learnpress-page .lp-modal-footer .lp-button, 
+.learnpress-page .lp-modal-footer #lp-button {
+    color: var(--color-bg);
+}

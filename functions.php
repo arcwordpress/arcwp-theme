@@ -1,7 +1,8 @@
 <?php
 
 add_action('wp_enqueue_scripts', function() {
-    // Enqueue Google Fonts (Geist and Lexend Exa)
+    
+    // 1. Enqueue Google Fonts (Geist and Lexend Exa)
     wp_enqueue_style(
         'arcwp-fonts',
         'https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Lexend+Exa:wght@400;500;600;700;800;900&display=swap',
@@ -9,6 +10,7 @@ add_action('wp_enqueue_scripts', function() {
         null
     );
 
+    // 2. Enqueue Main Stylesheet
     wp_enqueue_style(
         'arcwp-style',
         get_stylesheet_uri(),
@@ -16,6 +18,7 @@ add_action('wp_enqueue_scripts', function() {
         wp_get_theme()->get('Version')
     );
 
+    // 3. Enqueue Tailwind
     wp_enqueue_style(
         'arcwp-tailwind',
         get_template_directory_uri() . '/tailwind.css',
@@ -23,7 +26,17 @@ add_action('wp_enqueue_scripts', function() {
         wp_get_theme()->get('Version')
     );
 
-    // Enqueue mobile menu toggle script (on all pages)
+    // --- NEW: Enqueue Landing Page CSS for /courses/ ---
+    $is_page = is_page('courses');
+    error_log("IS PAGE COURSES: " . $is_page);
+    wp_enqueue_style(
+        'arcwp-lp-style',
+        get_template_directory_uri() . '/assets/css/lp.css',
+        [],
+        wp_get_theme()->get('Version')
+    );
+
+    // 4. Enqueue mobile menu toggle script (on all pages)
     wp_enqueue_script(
         'arcwp-mobile-menu',
         get_template_directory_uri() . '/js/mobile-menu.js',
@@ -32,18 +45,16 @@ add_action('wp_enqueue_scripts', function() {
         true
     );
 
-    // Enqueue home page animations as ES6 module (only on homepage)
-    // The module imports anime.js directly, so we don't need to enqueue it separately
+    // 5. Enqueue home page animations
     if (is_front_page() || is_page_template('page-home.php')) {
         wp_enqueue_script(
             'arcwp-home-animations',
             get_template_directory_uri() . '/js/home-animations.js',
-            [], // No dependencies - module imports anime.js itself
+            [],
             wp_get_theme()->get('Version'),
             true
         );
 
-        // Add type="module" attribute to the script tag
         add_filter('script_loader_tag', function($tag, $handle) {
             if ('arcwp-home-animations' === $handle) {
                 $tag = str_replace('<script ', '<script type="module" ', $tag);
@@ -52,13 +63,12 @@ add_action('wp_enqueue_scripts', function() {
         }, 10, 2);
     }
 
-    // Enqueue packages React app
+    // 6. Enqueue packages React app
     if (is_page('packages')) {
         $asset_file = get_template_directory() . '/apps/packages/build/index.asset.php';
 
         if (file_exists($asset_file)) {
             $asset = require $asset_file;
-
             wp_enqueue_script(
                 'arcwp-packages-app',
                 get_template_directory_uri() . '/apps/packages/build/index.js',
@@ -67,7 +77,6 @@ add_action('wp_enqueue_scripts', function() {
                 true
             );
 
-            // Localize script with API settings
             wp_localize_script('arcwp-packages-app', 'arcwpPackages', [
                 'apiUrl' => rest_url(),
                 'nonce' => wp_create_nonce('wp_rest')
@@ -75,22 +84,16 @@ add_action('wp_enqueue_scripts', function() {
         }
     }
 
-    // ========================================================================
-    // TEST1 ANIMATION - Timeline Controls Test
-    // This section can be removed after testing is complete
-    // ========================================================================
+    // 7. TEST1 ANIMATION
     if (is_page('test1')) {
-        // Enqueue test controls script as ES6 module
-        // The module imports anime.js and test-timeline.js
         wp_enqueue_script(
             'arcwp-test-controls',
             get_template_directory_uri() . '/js/test-controls.js',
-            [], // No dependencies - module imports everything itself
+            [],
             wp_get_theme()->get('Version'),
             true
         );
 
-        // Add type="module" attribute to the script tag
         add_filter('script_loader_tag', function($tag, $handle) {
             if ('arcwp-test-controls' === $handle) {
                 $tag = str_replace('<script ', '<script type="module" ', $tag);
@@ -98,9 +101,6 @@ add_action('wp_enqueue_scripts', function() {
             return $tag;
         }, 10, 2);
     }
-    // ========================================================================
-    // END TEST1 ANIMATION
-    // ========================================================================
 });
 
 // Add theme support for menus and features
@@ -204,9 +204,35 @@ add_filter('body_class', function($classes) {
     return $classes;
 });
 
-add_action('template_redirect', function() {
-    if (is_page('account') && is_user_logged_in() && !current_user_can('manage_options')) {
-        wp_redirect(site_url('/dashboard/'));
+add_action('admin_init', function () {
+    // Redirect any user trying to access the comments page in the backend
+    global $pagenow;
+    if ($pagenow === 'edit-comments.php') {
+        wp_redirect(admin_url());
         exit;
     }
+
+    // Remove the "Comments" menu item from the sidebar
+    remove_menu_page('edit-comments.php');
+
+    // Remove comment support from all post types (Posts, Pages, and LearnPress)
+    foreach (get_post_types() as $post_type) {
+        if (post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
+});
+
+// Close comments on the frontend
+add_filter('comments_open', '__return_false', 20, 2);
+add_filter('pings_open', '__return_false', 20, 2);
+
+// Hide existing comments if they already exist
+add_filter('comments_array', '__return_empty_array', 10, 2);
+
+// Remove the comments icon from the Admin Bar
+add_action('wp_before_admin_bar_render', function() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
 });

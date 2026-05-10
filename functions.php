@@ -45,7 +45,7 @@ add_action('wp_enqueue_scripts', function() {
     /* 6. Site Extra Styles */
     wp_enqueue_style(
         'arcwp-theme-styles',
-        get_template_directory_uri() . '/styles.css',
+        get_template_directory_uri() . '/style.css',
         [],
         wp_get_theme()->get('Version')
     );

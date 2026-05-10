@@ -5,15 +5,18 @@
 ---- 2.0 SINGLE COURSE OVERVIEW
 ---- 3.0 SINGLE COURSE TEMPLATE
 ---- 4.0 MODAL
----- 5.0 SPECIAL FEATURES
+---- 5.0 INSTRUCTOR SECTIONS
+---- 6.0 QUIZ
+---- 76.0 SPECIAL FEATURES
 
 **/
 
-body.learnpress-page {
+body {
     --color-main: #000;
+    --color-main-offset: #252525;
     --color-brand-blue: rgb(30, 64, 175);
     --color-contrast: white;
-    --color-contrast-2: #AAA;
+    --color-contrast-2: #AAA; 
 }
 
 
@@ -195,6 +198,13 @@ body.learnpress-page {
     color: var(--color-contrast-2);
 }
 
+.learnpress-page .learn-press-courses[data-layout=grid] .wp-block-learnpress-course-item-template, 
+.learnpress-page .learn-press-courses[data-layout=grid] .course-item, 
+.learnpress-page .learn-press-courses.lp-courses-related .wp-block-learnpress-course-item-template, 
+.learnpress-page .learn-press-courses.lp-courses-related .course-item {
+    border: 1px solid var(--color-main-offset);
+}
+
 /** 4.0 MODAL **/
 
 .lp-overlay {
@@ -212,10 +222,22 @@ body.learnpress-page {
     background-color: var(--color-bg);
 }
 
+.learnpress-page .lp-modal-footer .lp-button.btn-no, 
+.learnpress-page .lp-modal-footer #lp-button.btn-no {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-right: 1rem;
+}
+
 .learnpress-page .lp-modal-footer .lp-button.btn-yes, 
 .learnpress-page .lp-modal-footer #lp-button.btn-yes {
     color: var(--color-contrast);
-    background-color: var(--color-bg);
+    background-color: var(--color-main);
+}
+
+.learnpress-page .lp-modal-footer .lp-button.btn-yes:hover, 
+.learnpress-page .lp-modal-footer #lp-button.btn-yes:hover {
+    background-color: var(--color-main-offset);
 }
 
 .learnpress-page .lp-modal-footer .lp-button, 
@@ -223,7 +245,148 @@ body.learnpress-page {
     color: var(--color-bg);
 }
 
-/* 5.0 SPECIAL FEATURES */
+/* 5.0 INSTRUCTOR SECTIONS */
+
+.learnpress-page .course-tab-panel .lp-course-author .author-title a:hover {
+    color: var(--color-contrast);
+}
+
+.lp-single-instructor__info__wrapper .lp-single-instructor__info__right .lp-instructor-meta .instructor-item-meta i {
+    color: var(--color-contrast);
+}
+
+.page-template-default .learnpress-page .lp-archive-courses .course-meta__pull-left .meta-item__value > div a {
+    color: var(--color-contrast);
+}
+
+.page-template-default .learnpress-page .lp-archive-courses .course-meta__pull-left .meta-item__value > div a:hover {
+    color: var(--color-contrast);
+}
+
+.page-template-default .lp-single-instructor .ul-instructor-courses .course-readmore a {
+    color: var(--color-contrast);
+    border-color: var(--color-contrast);
+}
+
+.page-template-default .lp-single-instructor .ul-instructor-courses .course-readmore a:hover {
+    color: var(--color-contrast);
+    border-color: var(--color-brand-blue);
+}
+
+.page-template-default .lp-single-instructor .ul-instructor-courses .course-wrap-meta .meta-item::before {
+    color: var(--color-contrast);
+}
+
+.page-template-default .lp-single-instructor .ul-instructor-courses .course-price .free {
+    color: var(--color-contrast);
+}
+
+/* 6.0 QUIZ */
+
+.learnpress-page .quiz-intro-item::before,
+.learnpress-page .quiz-intro-item__title,
+.learnpress-page .quiz-intro-item__content {
+    color: var(--color-contrast-2);
+}
+
+.learnpress-page .lp-archive-courses ul.quiz-intro {
+    padding: 0;
+    margin-bottom: 64px;
+}
+
+.learnpress-page .content-item-wrap .quiz-buttons {
+    justify-content: start;
+}
+
+.learnpress-page .quiz-status>div {
+    padding: 0;
+}
+
+.learnpress-page .quiz-status .questions-index,
+.learnpress-page .quiz-status .questions-index > span,
+.learnpress-page .quiz-status .lp-icon-stopwatch,
+.learnpress-page .quiz-status span {
+    color: var(--color-contrast-2);
+}
+
+.learnpress-page .quiz-status #button-submit-quiz {
+    background-color: var(--color-main);
+    color: var(--color-contrast-2);
+    border: solid 1px var(--color-main);
+}
+
+.learnpress-page .quiz-status #button-submit-quiz {
+    border-color: var(--color-brand-blue);
+}
+
+.learnpress-page #lp-modal-window #lp-modal-buttons .modal-button-cancel {
+    background-color: var(--color-main-offset);
+    color: var(--color-contrast);
+    border: none;
+    padding: 0.25rem 1rem;
+    margin-right: 1rem;
+} 
+
+.learnpress-page #lp-modal-window #lp-modal-buttons .modal-button-cancel:hover {
+    background-color: var(--color-main);
+    border: none;
+} 
+
+.learnpress-page #lp-modal-window #lp-modal-buttons .modal-button-cancel {
+    background-color: var(--color-main-offset);
+    color: var(--color-contrast);
+    border: none;
+    padding: 0.25rem 1rem;
+    margin-right: 1rem;
+} 
+
+.learnpress-page .content-item-wrap .quiz-buttons.align-center .button-left.fixed {
+    background: var(--color-main);
+}
+
+.learnpress-page .question-answers ul.answer-options,
+#learn-press-quiz-app div.question,
+.quiz-questions .lp-fib-content 
+.question-answers .answer-options {
+    color: var(--color-contrast-2);
+    border: solid 1px var(--color-main);
+}
+
+.learnpress-page .question .answer-option {
+    background-color: var(--color-main) !important;
+}
+
+.learnpress-page .question .answer-option .option-title:hover {
+    border-color: var(--color-brand-blue);
+    background-color: var(--color-main);
+}
+
+.learnpress-page .question .answer-option input[type=radio] {
+    border-color: var(--color-main-contrast-2);
+    background-color: var(--color-main);
+}
+
+.question .answer-option input[type=radio]:checked:not(:disabled)::after, 
+.question .answer-option input[type=checkbox]:checked:not(:disabled)::after {
+    background-color: var(--color-brand-blue);
+}
+
+.learnpress-page .content-item-wrap .questions-pagination .nav-links .page-numbers.current, 
+.learnpress-page .content-item-wrap .questions-pagination .nav-links .page-numbers,
+.learnpress-page .content-item-wrap .questions-pagination .nav-links .page-numbers:hover {
+    color: var(--color-main-contrast);
+}
+
+.learnpress-page .content-item-wrap .questions-pagination .nav-links {
+    margin-top: 0;
+}
+
+.learnpress-page #popup-footer .course-item-nav .prev::before, 
+.learnpress-page #popup-footer .course-item-nav .next::before {
+    color: var(--color-main-contrast);
+}
+
+/* 7.0 SPECIAL FEATURES */
 
 .learnpress-page .course-sidebar-preview .course-time-row strong,
 .learnpress-page .course-summary-sidebar .course-results-progress .items-progress__heading, 
@@ -252,4 +415,33 @@ body.learnpress-page {
 
 .learnpress-page #popup-content .lp-button:hover {
     border-color: var(--color-brand-blue);
+}
+
+#popup-footer .course-item-nav {
+    background-color: var(--color-main);
+    color: var(--color-contrast-2);
+}
+
+.learnpress-page #popup-footer .course-item-nav {
+    border: none;
+}
+
+.learnpress-page #popup-footer .course-item-nav .prev a,
+.learnpress-page #popup-footer .course-item-nav .next a,
+.learnpress-page #popup-footer .course-item-nav .prev a:hover,
+.learnpress-page #popup-footer .course-item-nav .next a:hover {
+    color: var(--color-contrast-2);
+    text-decoration: none;
+}
+
+#learn-press-item-comments {
+    display: none !important;
+}
+
+.learnpress .lp-list-material tbody td, 
+.learnpress .lp-list-material table thead th, 
+.learnpress .lp-list-material table tfoot td, 
+.learnpress .lp-list-material table thead th {
+    background-color: var(--color-main);
+    color: var(--color-contrast);
 }

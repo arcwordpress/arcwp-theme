@@ -22,8 +22,22 @@
     background-color: var(--color-bg);
 }
 
+.lp-archive-courses .course-meta .course-meta__pull-left .meta-item::before {
+    color: var(--color-contrast);
+}
+
 .lp-courses-bar .search-courses button {
     color: var(--color-contrast);
+}
+
+.lp-archive-courses .course-summary-sidebar__inner > div,
+.lp-archive-courses .course-summary-sidebar__inner .course-sidebar-preview {
+    background-color: var(--color-bg) !important;
+}
+
+.course-summary-sidebar .lp-course-buttons button:hover {
+    background-color: var(--color-bg) !important;
+    border: solid 1px var(--color-brand-blue) !important;
 }
 
 .lp-courses-bar .courses-order-by {
@@ -56,6 +70,10 @@
 .learn-press-courses .course-content .course-info .course-price .free, 
 .learn-press-courses .course-content .course-info .course-price .price {
     font-size: calc(var(--lp-font-size-base, 1em) * 0.85);
+}
+
+.learn-press-courses .course-content .course-wrap-meta .meta-item::before {
+    color: var(--lp-color-white, var(--color-contrast));
 }
 
 /** 2.0 SINGLE COURSE OVERVIEW **/
@@ -180,4 +198,127 @@
 .learnpress-page .lp-modal-footer .lp-button, 
 .learnpress-page .lp-modal-footer #lp-button {
     color: var(--color-bg);
+}
+
+
+/**
+ * ARCWP LP Lesson System
+ * Block: .lp-lesson
+ * Scope: 720px Narrow Layout
+ */
+
+/* 1. The Layout Wrapper */
+.lp-lesson {
+  background-color: #000000;
+  min-height: 100vh;
+  /* Ensuring the background fills even on short lessons */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. The Container (Enforcing the 720px) */
+.lp-lesson__container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem; /* 64px top/bottom, 20px sides */
+}
+
+/* 3. The Header Section */
+.lp-lesson__header {
+  margin-bottom: 4rem;
+  text-align: left;
+}
+
+.lp-lesson__title {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive size from 40px to 64px */
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* 4. The Body Section */
+.lp-lesson__body {
+  position: relative;
+}
+
+/**
+ * Inner Content Block
+ * Block: .articles
+ * Targeted at raw HTML from the WP Editor
+ */
+.articles {
+  font-family: "Geist", sans-serif;
+  color: #cbd5e1; /* slate-300 */
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* Paragraph Spacing */
+.articles p {
+  margin-bottom: 1.75rem;
+}
+
+/* Heading Overrides for WordPress Editor */
+.articles h2, 
+.articles h3 {
+  font-family: "Lexend Exa", sans-serif;
+  color: #ffffff;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.articles h2 {
+  font-size: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.articles h3 {
+  font-size: 1.5rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Lists */
+.articles ul, 
+.articles ol {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.articles li {
+  margin-bottom: 0.75rem;
+}
+
+/* Media handling */
+.articles img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 3.5rem 0;
+  border: 1px solid #1e293b; /* slate-800 */
+}
+
+/* Links */
+.articles a {
+  color: #60a5fa; /* blue-400 */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.articles a:hover {
+  color: #93c5fd; /* blue-300 */
+}
+
+/* Code blocks (Teaching essential) */
+.articles code {
+  background: #1e293b;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #f8fafc;
 }

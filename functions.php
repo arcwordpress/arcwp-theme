@@ -26,7 +26,7 @@ add_action('wp_enqueue_scripts', function() {
         wp_get_theme()->get('Version')
     );
 
-    /* LearnPress Styles */
+    /* 4. LearnPress Styles */
     wp_enqueue_style(
         'arcwp-lp-style',
         get_template_directory_uri() . '/assets/css/lp.css',
@@ -34,10 +34,18 @@ add_action('wp_enqueue_scripts', function() {
         wp_get_theme()->get('Version')
     );
 
-    /* Articles Styles */
+    /* 5. Articles Styles */
     wp_enqueue_style(
         'arcwp-articles-style',
         get_template_directory_uri() . '/assets/css/articles.css',
+        [],
+        wp_get_theme()->get('Version')
+    );
+
+    /* 6. Site Extra Styles */
+    wp_enqueue_style(
+        'arcwp-theme-styles',
+        get_template_directory_uri() . '/styles.css',
         [],
         wp_get_theme()->get('Version')
     );
@@ -209,37 +217,4 @@ add_filter('body_class', function($classes) {
     $classes[] = 'bg-black';
     $classes[] = 'text-white';
     return $classes;
-});
-
-add_action('admin_init', function () {
-    // Redirect any user trying to access the comments page in the backend
-    global $pagenow;
-    if ($pagenow === 'edit-comments.php') {
-        wp_redirect(admin_url());
-        exit;
-    }
-
-    // Remove the "Comments" menu item from the sidebar
-    remove_menu_page('edit-comments.php');
-
-    // Remove comment support from all post types (Posts, Pages, and LearnPress)
-    foreach (get_post_types() as $post_type) {
-        if (post_type_supports($post_type, 'comments')) {
-            remove_post_type_support($post_type, 'comments');
-            remove_post_type_support($post_type, 'trackbacks');
-        }
-    }
-});
-
-// Close comments on the frontend
-add_filter('comments_open', '__return_false', 20, 2);
-add_filter('pings_open', '__return_false', 20, 2);
-
-// Hide existing comments if they already exist
-add_filter('comments_array', '__return_empty_array', 10, 2);
-
-// Remove the comments icon from the Admin Bar
-add_action('wp_before_admin_bar_render', function() {
-    global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('comments');
 });

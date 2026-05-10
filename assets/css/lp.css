@@ -5,8 +5,16 @@
 ---- 2.0 SINGLE COURSE OVERVIEW
 ---- 3.0 SINGLE COURSE TEMPLATE
 ---- 4.0 MODAL
+---- 5.0 SPECIAL FEATURES
 
 **/
+
+body.learnpress-page {
+    --color-main: #000;
+    --color-brand-blue: rgb(30, 64, 175);
+    --color-contrast: white;
+    --color-contrast-2: #AAA;
+}
 
 
 /** 1.0 COURSE ARCHIVES **/
@@ -38,6 +46,11 @@
 .course-summary-sidebar .lp-course-buttons button:hover {
     background-color: var(--color-bg) !important;
     border: solid 1px var(--color-brand-blue) !important;
+}
+
+.course-summary-sidebar .lp-course-buttons button {
+    background-color: var(--color-main) !important;
+    border: solid 1px var(--color-contrast-2) !important;
 }
 
 .lp-courses-bar .courses-order-by {
@@ -74,6 +87,12 @@
 
 .learn-press-courses .course-content .course-wrap-meta .meta-item::before {
     color: var(--lp-color-white, var(--color-contrast));
+}
+
+.learnpress-page .learn-press-content-item .lp-button, 
+.learnpress-page .learn-press-content-item #lp-button {
+    border: 1px solid var(--color-brand-blue,#e2e0db);
+
 }
 
 /** 2.0 SINGLE COURSE OVERVIEW **/
@@ -153,6 +172,10 @@
     border: 1px solid var(--color-bg);
 }
 
+.lp-course-curriculum .course-sections .course-section .course-item__link {
+    text-decoration: none;
+}
+
 .lp-archive-courses #popup-sidebar .search-course input[name=s] {
     color: var(--color-contrast);
     background-color: var(--color-bg);
@@ -200,125 +223,33 @@
     color: var(--color-bg);
 }
 
+/* 5.0 SPECIAL FEATURES */
 
-/**
- * ARCWP LP Lesson System
- * Block: .lp-lesson
- * Scope: 720px Narrow Layout
- */
-
-/* 1. The Layout Wrapper */
-.lp-lesson {
-  background-color: #000000;
-  min-height: 100vh;
-  /* Ensuring the background fills even on short lessons */
-  display: flex;
-  flex-direction: column;
+.learnpress-page .course-sidebar-preview .course-time-row strong,
+.learnpress-page .course-summary-sidebar .course-results-progress .items-progress__heading, 
+.learnpress-page .course-summary-sidebar .course-results-progress .course-progress__heading {
+    color: var(--color-contrast-2);
 }
 
-/* 2. The Container (Enforcing the 720px) */
-.lp-lesson__container {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 4rem 1.25rem; /* 64px top/bottom, 20px sides */
+.learnpress-page .course-sidebar-preview .course-time-row time,
+.learnpress-page .course-summary-sidebar .course-results-progress .number {
+    color: var(--color-contrast);
 }
 
-/* 3. The Header Section */
-.lp-lesson__header {
-  margin-bottom: 4rem;
-  text-align: left;
+.course-progress__line .course-progress__line__active,
+#popup-course .learn-press-progress .learn-press-progress__active {
+    background-color: var(--color-brand-blue);
 }
 
-.lp-lesson__title {
-  font-family: "Lexend Exa", sans-serif;
-  font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive size from 40px to 64px */
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+#popup-course .lp-icon-times:before, 
+#popup-course .lp-icon-times:before {
+    text-decoration: none;
 }
 
-/* 4. The Body Section */
-.lp-lesson__body {
-  position: relative;
+.learnpress-page #popup-content .lp-button {
+    border-color: var(--color-contrast-2);
 }
 
-/**
- * Inner Content Block
- * Block: .articles
- * Targeted at raw HTML from the WP Editor
- */
-.articles {
-  font-family: "Geist", sans-serif;
-  color: #cbd5e1; /* slate-300 */
-  font-size: 1.125rem;
-  line-height: 1.8;
-}
-
-/* Paragraph Spacing */
-.articles p {
-  margin-bottom: 1.75rem;
-}
-
-/* Heading Overrides for WordPress Editor */
-.articles h2, 
-.articles h3 {
-  font-family: "Lexend Exa", sans-serif;
-  color: #ffffff;
-  font-weight: 900;
-  line-height: 1.2;
-}
-
-.articles h2 {
-  font-size: 2rem;
-  margin-top: 5rem;
-  margin-bottom: 1.5rem;
-}
-
-.articles h3 {
-  font-size: 1.5rem;
-  margin-top: 3.5rem;
-  margin-bottom: 1rem;
-}
-
-/* Lists */
-.articles ul, 
-.articles ol {
-  margin-bottom: 2rem;
-  padding-left: 1.5rem;
-}
-
-.articles li {
-  margin-bottom: 0.75rem;
-}
-
-/* Media handling */
-.articles img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin: 3.5rem 0;
-  border: 1px solid #1e293b; /* slate-800 */
-}
-
-/* Links */
-.articles a {
-  color: #60a5fa; /* blue-400 */
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: color 0.2s ease;
-}
-
-.articles a:hover {
-  color: #93c5fd; /* blue-300 */
-}
-
-/* Code blocks (Teaching essential) */
-.articles code {
-  background: #1e293b;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.9em;
-  color: #f8fafc;
+.learnpress-page #popup-content .lp-button:hover {
+    border-color: var(--color-brand-blue);
 }

@@ -4,9 +4,13 @@ Theme URI: https://arcwp.ca
 Author: ARC Software
 Author URI: https://arcwp.ca
 Description: Custom WordPress theme for ARCWP site, providing tailored styles and layout.
-Version: 1.1.9
+Version: 1.1.9-rc6
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: arcwp-site-theme
 Tags: custom-theme, responsive, tailwind
 */
+
+.wp-block-kevinbatdorf-code-block-pro {
+    margin: 32px 0 40px 0;
+}
